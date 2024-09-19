@@ -1,0 +1,116 @@
+﻿/* styles.css */
+
+/* 全局样式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333; /* 深灰色文字 */
+    background-color: #f5f5f5; /* 浅灰色背景 */
+    display: grid;
+	width: 100vw;
+	height: 100vh;
+	
+
+
+	/*grid-row: 2/span 3;
+	grid-column: span 2;*/
+	/*grid-column-start: 1;
+	grid-column-end: 4;*/
+
+
+   
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    gap: 20px; /* 间隙 */
+}
+
+/* 清除浮动 */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* 布局样式 */
+header {
+	grid-column: span 2;
+    /*grid-area: header;*/
+    background-color: #6a5acd; /* 紫色背景 */
+    color: white; /* 白色文字 */
+    padding: 1em;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav a {
+    color: white; /* 白色文字 */
+    text-decoration: none;
+    padding: 0.5em;
+    display: block;
+}
+
+nav a:hover {
+    background-color: #483d8b; /* 深紫色背景 */
+}
+
+/* 主内容区域 */
+main {
+    grid-area: main;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    grid-template-rows: auto;
+    gap: 20px;
+}
+
+section#welcome {
+    grid-column: 1 / -1; /* 占据所有列 */
+    background-color: #e6e6fa; /* 淡紫色背景 */
+    color: #333; /* 深灰色文字 */
+    padding: 20px;
+}
+
+section#welcome article {
+    grid-column: 1 / -1; /* 占据所有列 */
+}
+
+section#welcome img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 页脚样式 */
+footer {
+	grid-column: span 2;
+    /*grid-area: footer;*/
+    background-color: #6a5acd; /* 紫色背景 */
+    color: white; /* 白色文字 */
+    padding: 1em;
+    text-align: center;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    nav ul {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
